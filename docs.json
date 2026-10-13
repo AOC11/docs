@@ -1,72 +1,85 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "Goliath",
+  "description": "Guides for your Goliath loader, account, licence keys and products.",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#7B64E0",
+    "light": "#B3A0FF",
+    "dark": "#6C54D1"
   },
-  "favicon": "/favicon.svg",
-  "navigation": {
-    "pages": [
-      {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "quickstart"
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
+  "appearance": {
+    "default": "dark",
+    "strict": false
+  },
+  "background": {
+    "color": {
+      "light": "#FAF9FD",
+      "dark": "#14151A"
     }
   },
+  "fonts": {
+    "family": "Inter"
+  },
+  "icons": {
+    "library": "lucide"
+  },
+  "favicon": "/favicon.svg",
   "logo": {
     "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "dark": "/logo/dark.svg",
+    "href": "/"
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Start here",
+        "pages": [
+          "index",
+          "quickstart",
+          "accounts"
+        ]
+      },
+      {
+        "group": "Your access",
+        "pages": [
+          "licence-keys",
+          "trials",
+          "products",
+          "product-status",
+          "updates"
+        ]
+      },
+      {
+        "group": "Help with the loader",
+        "pages": [
+          "troubleshooting/index",
+          "troubleshooting/sign-in",
+          "troubleshooting/keys",
+          "troubleshooting/access",
+          "troubleshooting/connection",
+          "resets",
+          "faq"
+        ]
+      }
+    ]
   },
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:support@mintlify.com"
+        "label": "Troubleshooting",
+        "href": "/troubleshooting/index"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "label": "Download loader",
+      "href": "https://pub-23071c18749e46c5b7fd6f3015559b84.r2.dev/Goliath%20Loader%20V2%20-%20Shipping.exe"
     }
   },
   "contextual": {
     "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
+      "copy"
     ]
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
   }
 }

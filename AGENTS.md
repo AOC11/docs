@@ -1,33 +1,17 @@
-> **First-time setup**: Customize this file for your project. Prompt the user to customize this file for their project.
-> For Mintlify product knowledge (components, configuration, writing standards),
-> install the Mintlify skill: `npx skills add https://mintlify.com/docs`
+# Goliath documentation
 
-# Documentation project instructions
+This repository contains the public Goliath user documentation, published with Mintlify from `main`.
 
-## About this project
-
-- This is a documentation site built on [Mintlify](https://mintlify.com)
-- Pages are MDX files with YAML frontmatter
-- Configuration lives in `docs.json`
-- Use the Mintlify MCP server, `https://mcp.mintlify.com`, to edit content and settings via MCP
-- Use the Mintlify docs MCP server, `https://www.mintlify.com/docs/mcp`, to query information about using Mintlify via MCP
-
-## Terminology
-
-{/* Add product-specific terms and preferred usage */}
-{/* Example: Use "workspace" not "project", "member" not "user" */}
-
-## Style preferences
-
-{/* Add any project-specific style rules below */}
-
-- Use active voice and second person ("you")
-- Keep sentences concise — one idea per sentence
-- Use sentence case for headings
-- Bold for UI elements: Click **Settings**
-- Code formatting for file names, commands, paths, and code references
-
-## Content boundaries
-
-{/* Define what should and shouldn't be documented */}
-{/* Example: Don't document internal admin features */}
+- Write for loader users, not administrators or SDK developers.
+- Use concise British English, active voice and the loader's actual UI labels.
+- Keep changes simple. Use native Mintlify components and `docs.json` settings.
+- Use “licence key”, “Your products”, “Menu updates”, and “Updating / Down”.
+- Successful key redemption returns users to Your products. There is no Subscriptions tab.
+- Direct users to a seller for resets; sellers handle them through the bot.
+- Do not add download, Discord or external support links unless the owner supplies them.
+- Do not document screenshot reports; the loader handles that flow.
+- Do not publish credentials, real user details, private backend addresses, admin instructions or internal security implementation.
+- Error titles, explanations and next steps should match the approved loader wording.
+- Every MDX page needs title and description frontmatter and a navigation entry.
+- Run `mint validate` and `mint broken-links` before publishing changes.
+- Use the configured default build locations. Do not create alternate build folders.
