@@ -5,10 +5,6 @@ description: "Find the relevant Windows screen and understand security compatibi
 
 Open **Start**, type **Windows Security**, and open the app. The locations below help you inspect the setting named in your message.
 
-<Note>
-Some loader messages suggest disabling a protection. This guide does not recommend doing that: keep protections enabled and request a compatible, properly signed build from your seller. Screenshots below are Microsoft's reference images; your Windows version may look different.
-</Note>
-
 ## App & browser control
 
 **Location:** Windows Security → **App & browser control**.
@@ -23,32 +19,30 @@ Some loader messages suggest disabling a protection. This guide does not recomme
 
     **Where to look:** **App & browser control → Exploit protection settings**.
 
-    **What to do:** Keep the existing protections. Send your seller the message and loader version so they can investigate compatibility. An enabled mitigation alone does not mean Windows is broken.
+    **What to do:** Disable the feature and re open the loader once done
   </Accordion>
   <Accordion title="SmartScreen is enabled">
     **Meaning:** The loader reports that Windows reputation checking is enabled.
 
     **Where to look:** **App & browser control → Reputation-based protection settings**.
 
-    **What to do:** If Windows blocks a file, note the warning and publisher. Ask your seller to verify the approved download and investigate the block before running it.
+    **What to do:** Disable the feature and re open the loader once done
   </Accordion>
   <Accordion title="Smart App Control is enforcing protection">
     **Meaning:** Windows is checking whether applications are trusted. This feature is specific to Windows 11.
 
     **Where to look:** **App & browser control → Smart App Control settings**, if available.
 
-    **What to do:** Install Windows updates and request a compatible, signed build if the block remains.
+    **What to do:** Disable the feature and re open the loader once done
   </Accordion>
   <Accordion title="Reputation-based protection is enabled">
     **Meaning:** The loader reports that a reputation protection setting is active. This overlaps with SmartScreen.
 
     **Where to look:** **App & browser control → Reputation-based protection settings**.
 
-    **What to do:** Record the actual Windows warning, if one appears, and contact your seller. Do not treat this message alone as proof that the file was blocked.
+    **What to do:** Disable the feature and re open the loader once done
   </Accordion>
 </AccordionGroup>
-
-[Microsoft's guide to App & browser control](https://support.microsoft.com/en-us/windows/security/windows-security/app-browser-control-in-the-windows-security-app) explains these features.
 
 ## Antivirus protection
 
@@ -58,7 +52,7 @@ Some loader messages suggest disabling a protection. This guide does not recomme
 
 1. Open **Windows Security → Virus & threat protection**.
 2. Check whether Windows shows a recent detection in **Protection history**. If you use another antivirus, check its own history too.
-3. Send the detection name and loader version to your seller for investigation. Keep protection enabled while it is reviewed.
+3. Disable the feature and re open the loader once done
 
 ## Windows Firewall
 
@@ -70,7 +64,7 @@ Some loader messages suggest disabling a protection. This guide does not recomme
   <img src="https://support.microsoft.com/en-us/windows/media/firewall-and-network-protection.png" alt="Windows Security Firewall and network protection screen with domain, private and public network profiles." />
 </Frame>
 
-**What to do:** Keep the firewall enabled. For a connection problem, first check whether other websites work, then follow [Connection and update errors](/troubleshooting/connection). On a managed PC, contact the network administrator.
+**What to do:** Disable the feature and re open the loader once done
 
 [Microsoft's firewall guide](https://support.microsoft.com/en-us/windows/security/windows-security/firewall-and-network-protection-in-the-windows-security-app) explains the network profiles shown here.
 
@@ -86,12 +80,12 @@ Some loader messages suggest disabling a protection. This guide does not recomme
   <Accordion title="Memory Integrity (HVCI) is running">
     **Meaning:** Windows is protecting kernel code with Memory integrity.
 
-    **What to do:** Keep it enabled. Install Windows and manufacturer driver updates. If a driver is reported as incompatible, ask the publisher for a compatible replacement.
+    **What to do:** Disable the feature and re open the loader once done
   </Accordion>
   <Accordion title="The vulnerable driver blocklist is configured on">
     **Meaning:** Windows reports that its vulnerable-driver blocklist is configured. This message alone does not identify which driver, if any, was blocked.
 
-    **What to do:** Keep the blocklist enabled. If Windows names a blocked driver, send its name to your seller and request an updated, compatible driver. Do not install an older vulnerable driver to work around the block.
+    **What to do:** Disable the feature and restart your pc then re open the loader
   </Accordion>
 </AccordionGroup>
 
@@ -103,7 +97,35 @@ Some loader messages suggest disabling a protection. This guide does not recomme
 
 **Meaning:** The loader reports that Riot Vanguard's driver is running. Closing a game window does not necessarily stop a background driver.
 
-**What to do:** Close the loader and ask your seller to confirm whether the current build supports this configuration. Keep Windows and your applications updated; do not alter anti-cheat services or drivers to bypass the check.
+**What to do:** 
+
+1. Press the **Windows Start button** or the `Windows key` on your keyboard.
+2. Type `cmd` in the search bar.
+3. Right-click **Command Prompt** (or click **Run as administrator** on the right side of the Start menu).
+4. Click **Yes** if the User Account Control (UAC) prompt appears.
+5. Enter the following command and click enter
+
+```shellscript
+sc config vgc start= disabled & sc config vgk start= disabled & net stop vgc & net stop vgk & taskkill /IM vgtray.exe
+```
+
+## FACEIT is running
+
+**Message starts with:** `FACEIT is running.`
+
+**Meaning:** The loader reports that the FACEIT driver is running. Closing a game window does not necessarily stop a background driver.
+
+**What to do:** 
+
+1. Press the **Windows Start button** or the `Windows key` on your keyboard.
+2. Type `cmd` in the search bar.
+3. Right-click **Command Prompt** (or click **Run as administrator** on the right side of the Start menu).
+4. Click **Yes** if the User Account Control (UAC) prompt appears.
+5. Enter the following command and click enter
+
+```shellscript
+sc stop faceit
+```
 
 ## The message says the status could not be determined
 
