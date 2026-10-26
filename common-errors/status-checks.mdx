@@ -1,0 +1,51 @@
+---
+title: "Status-check failures"
+description: "What to do when the loader cannot determine a Windows setting or dependency's status."
+---
+
+**Could not determine** means the loader could not complete its check. It does **not** establish that a protection is enabled, a component is missing, or your PC is unsupported.
+
+The messages in the supplied checks do not include a Windows error code, so the wording alone cannot identify the underlying cause.
+
+## Try these steps
+
+<Steps>
+  <Step title="Restart and finish updates">
+    Restart Windows. Open **Start → Settings → Windows Update** and finish any pending updates, including a requested restart.
+  </Step>
+  <Step title="Inspect the relevant Windows screen">
+    Open **Windows Security** from Start. Check whether the screen named in the table below opens normally. If Windows shows its own error, note that message too.
+
+    Do not change a setting simply because the loader could not read it. If a setting is managed by your organisation, contact its administrator.
+  </Step>
+  <Step title="Retry with the approved loader">
+    Confirm that you have the current approved version from your seller and try once more.
+  </Step>
+  <Step title="Send your seller the details">
+    Include the exact loader message, loader version, Windows version from **winver**, and any Windows Security or installer error. Your seller can pass those details on for investigation.
+  </Step>
+</Steps>
+
+## Match your message
+
+The wording below matches the supplied loader checks, including the typo in the Exploit Protection message.
+
+| Message | Where to inspect it |
+| --- | --- |
+| `Could not be determine Exploit Protection status .` | Windows Security → App & browser control → Exploit protection settings |
+| `Could not determine Windows Firewall status.` | Windows Security → Firewall & network protection |
+| `Could not determine antivirus protection status.` | Windows Security → Virus & threat protection, or your antivirus app |
+| `Could not determine the effective SmartScreen status.` | Windows Security → App & browser control → Reputation-based protection settings |
+| `Could not determine Smart App Control status.` | Windows Security → App & browser control → Smart App Control settings, if available |
+| `Reputation-based protection status could not be determined.` | Windows Security → App & browser control → Reputation-based protection settings |
+| `Could not determine Memory Integrity status.` | Windows Security → Device security → Core isolation details |
+| `Could not determine Visual C++ 2008 Redistributable installation status.` | Start → Add or remove programs → search for Visual C++ 2008 |
+| `Could not determine DirectX SDK June 2010 installation status.` | Start → Add or remove programs → search for DirectX SDK |
+| `Could not determine vulnerable driver blocklist configuration.` | Windows Security → Device security → Core isolation details, if available |
+| `Could not determine whether Valorant Vanguard is running.` | This check concerns a background driver, not a Windows Security toggle. Ask your seller to investigate compatibility. |
+
+<Tip>
+Some screens vary by Windows version or device. A missing setting is useful information to report; it is not a reason to edit the registry or disable another protection.
+</Tip>
+
+For a check that completed and reported an enabled protection, see [Windows security warnings](/common-errors/windows-security). For a missing installation, see [Missing dependencies](/common-errors/dependencies).

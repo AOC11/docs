@@ -1,0 +1,53 @@
+---
+title: "Missing dependencies"
+description: "Understand Visual C++ 2008 and DirectX June 2010 checks and choose the correct Microsoft package."
+---
+
+These messages concern installed components. They are separate from Windows security warnings.
+
+## Visual C++ 2008 Redistributable is not registered
+
+**Message:** `A Visual C++ 2008 Redistributable installation is not registered. Please install it to proceed.`
+
+**Meaning:** The loader did not find the installation registration it expects. The pasted check does not tell us whether an individual runtime DLL is missing.
+
+<Steps>
+  <Step title="Check the installed apps">
+    Open **Start**, search for **Add or remove programs**, and search the installed apps for **Microsoft Visual C++ 2008 Redistributable**.
+  </Step>
+  <Step title="Use the correct Microsoft package">
+    Open [Microsoft's Visual C++ Redistributable list](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) and find **Visual Studio 2008 (VC++ 9.0) SP1** under legacy versions.
+
+    Choose the architecture required by the application: **x64** for a 64-bit application or **x86** for a 32-bit application. A 64-bit Windows installation can still run applications that require the x86 package. Ask your seller if the requirement is unclear.
+  </Step>
+  <Step title="Install or repair, then retry">
+    Close the loader, run the official installer and follow its instructions. If it offers a repair option for an existing installation, use that option. Restart if requested, then reopen the loader.
+  </Step>
+</Steps>
+
+<Note>
+Visual C++ 2008 is a legacy, unsupported runtime. A newer Visual C++ package does not automatically replace it. Do not uninstall other Visual C++ versions; other applications may need them.
+</Note>
+
+If the message remains, send your seller the package name, architecture and any installer error. Avoid registry edits or third-party “all-in-one” installers.
+
+## DirectX SDK June 2010 is not registered
+
+**Message:** `The DirectX SDK June 2010 installation is not registered. Please install it to proceed.`
+
+**Meaning:** The message names the **developer SDK**, rather than just the DirectX runtime. Having DirectX 12 installed does not establish whether legacy DirectX components or the SDK are present.
+
+### What to do
+
+1. Send your seller the exact message and confirm which package this loader build needs.
+2. For missing legacy runtime components, use Microsoft's [DirectX End-User Runtimes (June 2010)](https://www.microsoft.com/en-us/download/details.aspx?id=8109). This package supplies optional legacy libraries; it does not replace the DirectX version included with Windows.
+3. If the seller confirms that the SDK itself is required, use Microsoft's [legacy DirectX SDK page](https://www.microsoft.com/en-us/download/details.aspx?id=6812) and check its requirements before installing.
+4. Follow the official installer instructions, restart if requested, and retry once. If the registration error remains, contact your seller.
+
+<Warning>
+The runtime and SDK are different packages. Installing the runtime may not satisfy an SDK-registration check. Do not download individual DLL files from third-party websites or create registry entries to make the check pass.
+</Warning>
+
+## Could not determine installation status
+
+If the message starts with **Could not determine**, the check itself failed. Follow [Status-check failures](/common-errors/status-checks) before installing or removing anything.

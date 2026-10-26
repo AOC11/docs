@@ -51,6 +51,15 @@
         ]
       },
       {
+        "group": "Common errors",
+        "pages": [
+          "common-errors/index",
+          "common-errors/windows-security",
+          "common-errors/dependencies",
+          "common-errors/status-checks"
+        ]
+      },
+      {
         "group": "Help with the loader",
         "pages": [
           "troubleshooting/index",
